@@ -1,0 +1,30 @@
+{
+  "name": "@matt-mc/paperclip-investigations",
+  "version": "0.2.1",
+  "private": true,
+  "type": "module",
+  "description": "Delegate evidence while one Paperclip agent owns the investigation.",
+  "engines": { "node": ">=24.11.0" },
+  "files": ["dist", "skills/investigation/SKILL.md", "THIRD_PARTY_LICENSE.txt"],
+  "paperclipPlugin": {
+    "manifest": "./dist/manifest.js",
+    "worker": "./dist/worker.js",
+    "ui": "./dist/ui/"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run build",
+    "test": "node --test ownership.test.mjs",
+    "smoke": "node smoke.mjs",
+    "prepack": "npm run build"
+  },
+  "devDependencies": {
+    "@paperclipai/plugin-sdk": "2026.1111.0-canary.11",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "esbuild": "0.28.2",
+    "react": "19.3.1",
+    "typescript": "7.0.2"
+  }
+}
